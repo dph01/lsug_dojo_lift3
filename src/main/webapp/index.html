@@ -1,42 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
-    <title>Home</title>
-  </head>
-  <body class="lift:content_id=main">
-    <div id="main" class="lift:surround?with=default;at=content">
-      <h2>Welcome to your project!</h2>
-        <div data-wombat="David">My wombat is named: </div>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+<title>Home</title>
+</head>
+<body class="lift:content_id=main">
+	<div id="main" class="lift:surround?with=default;at=content">
+		<h2>Welcome to your project!</h2>
+<!-- 		<div data-wombat="David">My wombat is named:</div> -->
+		<div>
+			Enter some text <input id="in"> and
+			<button onclick="sendToServer(document.getElementById('in').value)">
+			Click me</button>
+		</div>
+<!-- 		<div id="foo">Hi... I'm the foo div</div> -->
+		<div id="foo"></div>
+		<br>
+		<br>
 
-        <div id="foo">Hi... I'm the foo div</div>
+		<div>
+			First Name <input id="fname"> <br>
+			Last Name <input id="lname"> <br>
+			Age <input id="age"> <br>
+			<button onclick="sendToServer(newPerson())"> Click me</button>
+		</div>
+		
+		<br>
+		<div id="recommendation"></div>
+		
+		<script type="text/javascript">
+		function newPerson() {
+			var fname = document.getElementById('fname').value;
+      var lname = document.getElementById('lname').value;
+      var age = document.getElementById('age').value;
+      return {fname: fname, lname: lname, age: age};
+		}
+    function setRecommendation(rec) {
+	    document.getElementById('recommendation').innerHTML = "The best album for " + rec.name + " is " +
+	     rec.album + " by " + rec.artist;
+    }
+    function changeNode(str) {
+    	document.getElementById('foo').innerHTML = str;
+    }
+    
+		</script>
+		<p>
+<!-- 			<span class="lift:helloWorld.howdy"> Welcome to your Lift app -->
+<!-- 				at <span id="time">Time goes here</span> -->
+<!-- 			</span> -->
+		<div data-lift="ActNice">this will disappear</div>
+		<hr>
+
+		<!-- 		<ul> -->
+		<!-- 			<li data-jssource="* *+ #> [1,2,'dog', 'hi']">Thing:</li> -->
+		<!-- 		</ul> -->
+
+		<!-- 		<ul> -->
+		<!-- 			<li -->
+		<!-- 				data-jssource="[{'name': 'David', age: 49}, {name: 'Archer', age: 9}]"> -->
+		<!-- 				<span data-jssource="* *+ #> it.name">Name: </span> <span -->
+		<!-- 				data-jssource="* *+ #> it.age">Age: </span> -->
 
 
-        <div>Enter some text <input id="in"> and <button onclick="sendToServer(document.getElementById('in').value)">Click me</button> </div>
+		<!-- 			</li> -->
+		<!-- 		</ul> -->
 
-      <p>
-	<span class="lift:helloWorld.howdy">
-	  Welcome to your Lift app at <span id="time">Time goes here</span>
-	</span>
-
-          <div data-lift="ActNice">this will disappear</div>
-        <hr>
-
-        <ul>
-            <li data-jssource="* *+ #> [1,2,'dog', 'hi']">Thing: </li>
-        </ul>
-
-        <ul>
-            <li data-jssource="[{'name': 'David', age: 49}, {name: 'Archer', age: 9}]">
-                <span data-jssource="* *+ #> it.name">Name: </span>
-                <span data-jssource="* *+ #> it.age">Age: </span>
-
-
-            </li>
-        </ul>
-
-      </p>
-    </div>
-  </body>
+		</p>
+	</div>
+</body>
 </html>
 
