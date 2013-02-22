@@ -1,9 +1,8 @@
-lift_30_samples
+London Scala User Group 22/2/13 - lift_30 Samples
 ===============
 
-Lift 3.0 Sample Code
 
-./sbt
->container:start
+    ./sbt
+    container:start
 
-browse to localhost:8080
+Browse to localhost:8080
